@@ -13,6 +13,7 @@ import com.example.a4_recyclerviewcustomadapterloadingmorejava.Listener.OnBottom
 import com.example.a4_recyclerviewcustomadapterloadingmorejava.R;
 import com.example.a4_recyclerviewcustomadapterloadingmorejava.adapter.CustomAdapter;
 import com.example.a4_recyclerviewcustomadapterloadingmorejava.model.Member;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView;
         Context context;
+        boolean bool = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +40,14 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter adapter = new CustomAdapter(context, members, new OnBottomReachedListener() {
             @Override
             public void onBottomReached(int position) {
-//               Toast.makeText(MainActivity.this,"This is the end of the page",Toast.LENGTH_SHORT).show();
-            Log.d("@@@","position"+position);
+                Log.d("BBBB","position"+position);
+                Toast.makeText(MainActivity.this,"this is the last object",Toast.LENGTH_LONG).show();
             }
         });
             recyclerView.setAdapter(adapter);
-    }
+    } 
+
+
 
     private List<Member> prepareMemberList() {
         List<Member> members = new ArrayList<>();
